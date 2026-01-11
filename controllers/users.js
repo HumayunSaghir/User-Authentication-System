@@ -48,9 +48,15 @@ async function handleValidateLogin(req, res){
     }
 } 
 
+// logout
+function handleLogoutFunctionality(req, res){
+    return res.status(200).clearCookie('token').redirect('/home')
+}
+
 module.exports = {
     handleShowSignupPage,
     handleSignupValidation,
     handleShowLoginPage,
     handleValidateLogin,
+    handleLogoutFunctionality
 }

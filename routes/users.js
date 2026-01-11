@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const {handleShowSignupPage, handleSignupValidation, handleShowLoginPage, handleValidateLogin} = require('../controllers/users')
+const {handleShowSignupPage, handleSignupValidation, handleShowLoginPage, handleValidateLogin, handleLogoutFunctionality} = require('../controllers/users')
 
 const router = Router()
 
@@ -8,5 +8,6 @@ router.get('/signup', handleShowSignupPage)
 router.post('/validateSignup', handleSignupValidation)
 router.get('/login', handleShowLoginPage)
 router.post('/validateLogin', handleValidateLogin)
+router.get('/logout', handleLogoutFunctionality)
 
 module.exports = router
