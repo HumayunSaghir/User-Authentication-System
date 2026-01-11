@@ -14,7 +14,9 @@ function createToken(user){
 }
 
 function verifyToken(token){
-    const user = JWT.verifyToken(token)
+    console.log('error')
+    const user = JWT.verify(token, secretKey)
+    console.log('not returned')
     return user
 }
 

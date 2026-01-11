@@ -1,9 +1,11 @@
 const express = require('express')
-const userRouter = require('./routes/users')
 const {connectDatabase} = require('./connection')
 const path = require('path')
 const {createLogs} = require('./middlewares/logs')
 const cookieParser = require('cookie-parser')
+const {softAuth} = require('./middlewares/auth')
+const userRouter = require('./routes/users')
+const homeRouter = require('./routes/home')
 
 // setting up app
 const app = express()
@@ -25,6 +27,7 @@ app.set('views', path.resolve('./views'))
 
 // setting up routes
 app.use('/user/', userRouter)
+app.use('/', softAuth, homeRouter)
 
 // server listening
 app.listen(port, () => console.log(`server is listening at port ${port}`))
