@@ -1,8 +1,9 @@
 const {Router} = require('express')
-const {handleShowHomepage} = require('../controllers/home')
+const {handleShowHomepage, handleShowProfile} = require('../controllers/home')
 
 const router = Router()
 
-router.get('/', handleShowHomepage)
+router.get('/home', handleShowHomepage)
+router.get('/profile', handleShowProfile)
 
 module.exports = router

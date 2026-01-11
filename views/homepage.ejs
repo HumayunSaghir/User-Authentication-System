@@ -5,15 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <%- include('./partials/css') %>
+    <style>
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
     <!-- case when user will be logged in -->
     <% if (locals.user) { %>
         <h2>Hey <%= locals.user.name %>!</h2>
+        <h3>Welcome to Homepage</h3>
+        <button type="button" class="btn btn-secondary">
+            <a href="/profile">Visit profile</a>
+        </button>
+    <% } %>
+        
+
+    <!-- when user is not logged in show him sigin or signup functionality -->
+    <% if (locals.user === undefined) { %>
+        <h3>Welcome to Homepage</h3>
+        <p>Please signin or signup first</p>
+        <button type="button" class="btn btn-secondary">
+            <a href="/user/login">Login</a>
+        </button>
+        <button type="button" class="btn btn-secondary">
+            <a href="/user/signup">Signup</a>
+        </button>
     <% } %>
 
-    <h3>Welcome to Homepage</h3>
-
     <%- include('./partials/script') %>
+    <script src="https://kit.fontawesome.com/f0606bcd7a.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -20,9 +20,7 @@ async function handleSignupValidation(req, res){
     const token = createToken(createdUser)
     res.cookie('token', token)
 
-    return res.status(201).render('homepage', {
-        user : createdUser,
-    })
+    return res.status(201).redirect('/home')
 }
 
 // showing login page
@@ -37,16 +35,16 @@ async function handleValidateLogin(req, res){
 
     try{
         token = await userModel.matchPassword(email, password)
-        res.cookie(token)
+        
+        // sending token to client
+        res.cookie('token', token)
 
-        const loggedinUser = verifyToken(token)
-
-        return res.status(200).render('homepage', {
-            user : loggedinUser,
-        })
+        return res.status(200).redirect('/home')
     }
     catch(err){
-        return res.status(401).end(err.message)
+        return res.status(401).render('login', {
+            message : err.message,
+        })
     }
 } 
 

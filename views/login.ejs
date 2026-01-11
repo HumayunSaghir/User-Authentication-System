@@ -9,6 +9,12 @@
 <body>
     <h1>Login</h1>
 
+    <% if (locals.message) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= locals.message %>
+        </div>
+    <% } %>
+    
     <form method="post" action="/user/validateLogin">
         <!-- email -->
         <div class="mb-3">

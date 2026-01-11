@@ -3,6 +3,7 @@ const secretKey = '$hroud3296'
 
 // creating and returning token.
 function createToken(user){
+
     const payLoad = {
         _id : user._id,
         name : user.name,
@@ -14,9 +15,7 @@ function createToken(user){
 }
 
 function verifyToken(token){
-    console.log('error')
     const user = JWT.verify(token, secretKey)
-    console.log('not returned')
     return user
 }
 
