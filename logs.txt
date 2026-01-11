@@ -1,0 +1,8 @@
+new request at undefined by method GETnew request at undefined by method GET
+new request at undefined by method POST
+new request at /user/validateSignup by method POST
+new request at /user/login by method GET
+new request at /user/login by method GET
+new request at /user/validateLogin by method POST
+new request at /user/validateLogin by method POST
+new request at /user/validateLogin by method POST
