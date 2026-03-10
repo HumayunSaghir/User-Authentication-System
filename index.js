@@ -11,7 +11,7 @@ const homeRouter = require('./routes/home')
 const app = express()
 const port = 8000
 
-// database connection
+// database connection.
 connectDatabase('mongodb://127.0.0.1:27017/userAuthSystem')
     .then(() => console.log('database connected!'))
     .catch(() => console.log('error in database connection!'))
